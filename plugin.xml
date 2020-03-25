@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:amazon="http://schemas.android.com/apk/lib/com.amazon.device.ads" xmlns:rim="http://www.blackberry.com/ns/widgets" id="cordova-plugin-chg-manifest" version="0.0.1">
+  <name>cordova-plugin-chg-manifest</name>
+  <description>
+		A corodva plugin to change debug, allow backup and cleartext.
+	</description>
+  <license>MIT</license>
+  <engines>
+    <engine name="cordova" version=">=6.4.0"/>
+    <engine name="cordova-android" version=">=6.0.0"/>
+  </engines>
+  <preference name="BACKUP" default="false"/>
+  <preference name="CLTXT" default="true"/>
+  <preference name="DEBUG" default="true"/>
+  <platform name="android">
+    <edit-config file="AndroidManifest.xml" target="/manifest/application" mode="merge">
+      <application android:allowBackup="$BACKUP"/>
+      <application android:usesCleartextTraffic="$CLTXT"/>
+      <application android:debuggable="$DEBUG"/>
+    </edit-config>
+  </platform>
+</plugin>
